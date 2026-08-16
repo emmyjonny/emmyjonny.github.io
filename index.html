@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emmanuel Jonathan — AI Governance, Risk & Compliance</title>
+<meta name="description" content="Emmanuel Jonathan — Law-trained risk and compliance professional working at the intersection of AI governance, data governance, and risk-aware machine learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f8fa;
+    --border: #e2e8f0;
+    --text: #1a202c;
+    --muted: #4a5568;
+    --accent: #1e4fa3;
+    --accent-dim: rgba(30,79,163,.08);
+    --max: 860px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  nav .logo { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.1rem; color: var(--text); }
+  nav ul { display: flex; gap: 24px; list-style: none; }
+  nav ul a { color: var(--muted); font-size: .9rem; font-weight: 500; }
+  nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+  header.hero { padding: 96px 0 72px; }
+  .hero .kicker { color: var(--accent); font-weight: 600; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 span { color: var(--accent); }
+  .hero p.lede { color: var(--muted); font-size: 1.15rem; max-width: 640px; margin-bottom: 32px; }
+  .btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 8px;
+    font-weight: 600; font-size: .95rem; transition: transform .15s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: #ffffff; }
+  .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+
+  section { padding: 64px 0; border-top: 1px solid var(--border); }
+  h2 { font-family: 'Fraunces', serif; font-size: 1.8rem; margin-bottom: 28px; }
+  h2::after { content: ""; display: block; width: 48px; height: 3px; background: var(--accent); margin-top: 10px; border-radius: 2px; }
+
+  .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+  .about-grid p + p { margin-top: 14px; }
+  .about-grid p { color: var(--muted); }
+  .about-grid strong { color: var(--text); }
+  .focus-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; height: fit-content; }
+  .focus-card h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 14px; }
+  .focus-card li { list-style: none; color: var(--muted); font-size: .92rem; padding: 6px 0; border-bottom: 1px solid var(--border); }
+  .focus-card li:last-child { border-bottom: none; }
+
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 26px; display: flex; flex-direction: column; transition: border-color .2s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+  .card p { color: var(--muted); font-size: .92rem; flex: 1; margin-bottom: 16px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .tag { background: var(--accent-dim); color: var(--accent); font-size: .75rem; font-weight: 500; padding: 3px 10px; border-radius: 99px; }
+  .card .links { display: flex; gap: 16px; font-size: .9rem; font-weight: 600; }
+
+  .exp-item { border-left: 2px solid var(--border); padding: 0 0 32px 24px; position: relative; }
+  .exp-item:last-child { padding-bottom: 0; }
+  .exp-item::before {
+    content: ""; position: absolute; left: -7px; top: 4px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+  }
+  .exp-item h3 { font-size: 1.05rem; }
+  .exp-item .meta { color: var(--accent); font-size: .85rem; font-weight: 500; margin-bottom: 10px; }
+  .exp-item ul { color: var(--muted); font-size: .93rem; padding-left: 18px; }
+  .exp-item li { margin-bottom: 6px; }
+
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skills span {
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 8px 16px; border-radius: 8px; font-size: .9rem; color: var(--muted);
+  }
+
+  #contact { text-align: center; }
+  #contact h2::after { margin: 10px auto 0; }
+  #contact p { color: var(--muted); max-width: 520px; margin: 0 auto 28px; }
+
+  footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; color: var(--muted); font-size: .85rem; }
+
+  @media (max-width: 720px) {
+    .about-grid { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">EJ</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">AI Governance · Risk · Compliance · Machine Learning</div>
+    <h1>Emmanuel Jonathan</h1>
+    <p class="lede">Law-trained risk and compliance professional building at the intersection of AI governance, data governance, and risk-aware machine learning systems.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="#projects">View Projects</a>
+      <a class="btn btn-ghost" href="mailto:jonathanemmanuel887@gmail.com">Get in Touch</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <h2>About</h2>
+      <p>My background spans <strong>international law, regulatory compliance, financial crime investigations</strong>, and large-scale public sector program governance. I bring structured legal reasoning, audit-ready documentation experience, and system-level risk analysis into technology and AI-focused work.</p>
+      <p>As a former <strong>AML Investigator</strong>, I've investigated sanctions and suspicious transaction alerts, conducted enhanced due diligence and OSINT analysis, and coordinated regulator-facing documentation across jurisdictions. That foundation shapes my interest in building <strong>accountable, risk-aware, and policy-aligned AI systems</strong>.</p>
+      <p>Educated at Dallas Baptist University. Writing at <a href="https://techlawgical.com" target="_blank" rel="noopener">techlawgical.com</a>.</p>
+    </div>
+    <div class="focus-card">
+      <h3>Focus Areas</h3>
+      <ul>
+        <li>AI Governance &amp; Responsible AI</li>
+        <li>Data Governance &amp; Risk Controls</li>
+        <li>Financial Crime &amp; Fraud Detection</li>
+        <li>Model &amp; Systems Risk Management</li>
+        <li>Regulatory &amp; Policy-Aware Tech Design</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Selected Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Fraud Detection ML System</h3>
+        <p>Supervised machine learning system identifying fraudulent financial transactions using real-world structured datasets — feature engineering, precision/recall evaluation, and risk-aware performance interpretation, deployed with an interactive dashboard.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">XGBoost</span><span class="tag">Streamlit</span></div>
+        <div class="links">
+          <a href="https://github.com/emmyjonny/credit-card-fraud-detection-ml-system" target="_blank" rel="noopener">Repository →</a>
+          <a href="https://credit-card-fraud-detection-klcjftpzqjodnnkuvnrynv.streamlit.app/" target="_blank" rel="noopener">Live Demo →</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Smart Contract Digital Asset Registry</h3>
+        <p>Secure Solidity smart contract implementing digital asset registration and ownership transfer with OpenZeppelin-based access controls, event logging for transparency, and security-conscious design.</p>
+        <div class="tags"><span class="tag">Solidity</span><span class="tag">Hardhat</span><span class="tag">OpenZeppelin</span></div>
+        <div class="links">
+          <a href="https://github.com/emmyjonny/smart-contract-digital-asset-registry" target="_blank" rel="noopener">Repository →</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>U.S. Gun Violence Data Dashboard</h3>
+        <p>Exploratory data analysis and interactive Tableau dashboard examining gun violence trends, geographic distribution, and demographic patterns from structured public datasets.</p>
+        <div class="tags"><span class="tag">Tableau</span><span class="tag">Data Analysis</span><span class="tag">Visualization</span></div>
+        <div class="links">
+          <a href="https://github.com/emmyjonny/us-gun-violence-dashboard" target="_blank" rel="noopener">Repository →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Professional Background</h2>
+    <div class="exp-item">
+      <h3>AML Investigator</h3>
+      <div class="meta">Risk, Compliance &amp; Financial Crime</div>
+      <ul>
+        <li>Investigated sanctions and suspicious transaction alerts</li>
+        <li>Conducted enhanced due diligence and OSINT analysis</li>
+        <li>Produced high-volume, audit-ready investigative narratives</li>
+        <li>Strengthened monitoring controls and detection frameworks</li>
+        <li>Coordinated regulator-facing documentation across jurisdictions</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <h3>Current Direction</h3>
+      <div class="meta">AI Governance &amp; Compliance Analytics</div>
+      <ul>
+        <li>Seeking roles and collaborations across AI governance, risk management, compliance analytics, fraud prevention, and technology policy</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Technical Stack</h2>
+    <div class="skills">
+      <span>Python</span><span>SQL</span><span>Machine Learning (scikit-learn)</span>
+      <span>Data Analysis (Pandas)</span><span>Streamlit</span><span>Solidity</span>
+      <span>Hardhat</span><span>Power BI</span><span>Tableau</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Get in Touch</h2>
+    <p>Open to roles and collaborations at the intersection of AI governance, risk, and compliance-driven technology.</p>
+    <div class="btns" style="justify-content:center;">
+      <a class="btn btn-primary" href="mailto:jonathanemmanuel887@gmail.com">Email Me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/emmanuel-jonathan1109/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/emmyjonny" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Emmanuel Jonathan · Built for GitHub Pages</div>
+</footer>
+
+</body>
+</html>
