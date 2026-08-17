@@ -44,7 +44,10 @@
   nav ul a:hover { color: var(--accent); text-decoration: none; }
 
   header.hero { padding: 96px 0 72px; }
-  .hero .kicker { color: var(--accent); font-weight: 600; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+  .hero .kicker { color: var(--accent); font-weight: 600; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 16px; min-height: 1.2em; }
+  .hero .kicker .typed-cursor { display: inline-block; width: 2px; margin-left: 2px; background: var(--accent); animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
   .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.1; margin-bottom: 20px; }
   .hero h1 span { color: var(--accent); }
   .hero p.lede { color: var(--muted); font-size: 1.15rem; max-width: 640px; margin-bottom: 32px; }
@@ -56,6 +59,36 @@
   .btn:hover { text-decoration: none; transform: translateY(-2px); }
   .btn-primary { background: var(--accent); color: #ffffff; }
   .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+
+  .hero-photo-wrap { position: relative; width: 180px; height: 180px; justify-self: center; }
+  .hero-photo-wrap::before {
+    content: ""; position: absolute; inset: -8px; border-radius: 50%;
+    background: conic-gradient(from 180deg, var(--accent), var(--accent-dim), var(--accent));
+    opacity: .5;
+  }
+  .hero-photo {
+    position: relative; width: 180px; height: 180px; border-radius: 50%;
+    object-fit: cover; border: 4px solid var(--bg); box-shadow: 0 12px 32px rgba(30,79,163,.18);
+  }
+  .status-chip {
+    position: absolute; bottom: 2px; right: 2px; background: var(--bg);
+    border: 1px solid var(--border); border-radius: 99px; padding: 5px 11px;
+    font-size: .72rem; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.06);
+  }
+  .status-chip .dot { width: 7px; height: 7px; border-radius: 50%; background: #2ea043; box-shadow: 0 0 0 3px rgba(46,160,67,.18); }
+
+  .stats-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    margin-top: 56px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface);
+  }
+  .stat { padding: 22px 16px; text-align: center; border-left: 1px solid var(--border); }
+  .stat:first-child { border-left: none; }
+  .stat .num { font-family: 'Fraunces', serif; font-size: 1.9rem; font-weight: 700; color: var(--accent); }
+  .stat .label { color: var(--muted); font-size: .78rem; margin-top: 4px; letter-spacing: .01em; }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   section { padding: 64px 0; border-top: 1px solid var(--border); }
   h2 { font-family: 'Fraunces', serif; font-size: 1.8rem; margin-bottom: 28px; }
@@ -128,6 +161,12 @@
     .about-grid { grid-template-columns: 1fr; }
     .info-grid { grid-template-columns: 1fr; gap: 24px; }
     nav ul { display: none; }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-photo-wrap { justify-self: center; }
+    .hero p.lede { margin-left: auto; margin-right: auto; }
+    .btns { justify-content: center; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(3) { border-left: none; }
   }
 </style>
 </head>
@@ -149,19 +188,33 @@
 </nav>
 
 <header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker" id="kicker"></div>
+      <h1>Emmanuel Jonathan</h1>
+      <p class="lede">Experienced professional with an M.S. in Information Technology and Management and six years across financial services, government, and consulting — combining hands-on <strong>data analysis, Python, and SQL</strong> work with machine learning and a sustained record of resolving complex escalated cases and coordinating regulator-facing documentation.</p>
+      <p style="color:var(--muted); font-size:.92rem; margin-top:-20px; margin-bottom:24px;">Baltimore, MD</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="mailto:jonathanemmanuel887@gmail.com">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="data:image/jpeg;base64,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" alt="Portrait of Emmanuel Jonathan">
+      <div class="status-chip"><span class="dot"></span>Open to work</div>
+    </div>
+  </div>
   <div class="wrap">
-    <div class="kicker">AI Governance · Risk · Compliance · Machine Learning</div>
-    <h1>Emmanuel Jonathan</h1>
-    <p class="lede">Experienced professional with an M.S. in Information Technology and Management and six years across financial services, government, and consulting — combining hands-on technical work in Python, SQL, and machine learning with a sustained record of resolving complex escalated cases and coordinating regulator-facing documentation.</p>
-    <p style="color:var(--muted); font-size:.92rem; margin-top:-20px; margin-bottom:24px;">Baltimore, MD</p>
-    <div class="btns">
-      <a class="btn btn-primary" href="#projects">View Projects</a>
-      <a class="btn btn-ghost" href="mailto:jonathanemmanuel887@gmail.com">Get in Touch</a>
+    <div class="stats-strip reveal">
+      <div class="stat"><div class="num" data-count="6" data-suffix="+">0</div><div class="label">Years Experience</div></div>
+      <div class="stat"><div class="num" data-count="120" data-suffix="+">0</div><div class="label">SAR Narratives / mo</div></div>
+      <div class="stat"><div class="num" data-count="80" data-suffix="+">0</div><div class="label">Jurisdictions Coordinated</div></div>
+      <div class="stat"><div class="num" data-count="35" data-suffix="%">0</div><div class="label">Detection Increase Driven</div></div>
     </div>
   </div>
 </header>
 
-<section id="about">
+<section id="about" class="reveal">
   <div class="wrap about-grid">
     <div>
       <h2>About</h2>
@@ -183,7 +236,7 @@
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="reveal">
   <div class="wrap">
     <h2>Selected Projects</h2>
     <div class="projects">
@@ -216,7 +269,7 @@
   </div>
 </section>
 
-<section id="dashboards">
+<section id="dashboards" class="reveal">
   <div class="wrap">
     <h2>Live Dashboards</h2>
     <p style="color:var(--muted); margin-bottom:24px;">Interactive Tableau dashboards — explore the data directly on the page, or view more on my <a href="https://public.tableau.com/app/profile/emmanuel.jonathan3156/vizzes" target="_blank" rel="noopener">Tableau Public profile</a>.</p>
@@ -227,7 +280,7 @@
 </section>
 <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 
-<section id="experience">
+<section id="experience" class="reveal">
   <div class="wrap">
     <h2>Professional Background</h2>
     <div class="exp-item">
@@ -272,7 +325,7 @@
   </div>
 </section>
 
-<section id="skills">
+<section id="skills" class="reveal">
   <div class="wrap">
     <h2>Skills</h2>
     <div class="skill-group">
@@ -312,7 +365,7 @@
   </div>
 </section>
 
-<section id="credentials">
+<section id="credentials" class="reveal">
   <div class="wrap">
     <h2>Credentials</h2>
     <div class="info-grid" style="margin-bottom:40px;">
@@ -388,7 +441,7 @@
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="reveal">
   <div class="wrap">
     <h2>Get in Touch</h2>
     <p>Open to roles and collaborations at the intersection of AI governance, risk, and compliance-driven technology.</p>
@@ -403,6 +456,82 @@
 <footer>
   <div class="wrap">© 2026 Emmanuel Jonathan · Built for GitHub Pages</div>
 </footer>
+
+<script>
+  // Rotating kicker typewriter
+  (function () {
+    var roles = ["AI Governance", "Data Analysis & BI", "Risk & Compliance", "Machine Learning", "Financial Crime Investigation"];
+    var el = document.getElementById('kicker');
+    if (!el) return;
+    var cursor = document.createElement('span');
+    cursor.className = 'typed-cursor';
+    cursor.innerHTML = '&nbsp;';
+    var textNode = document.createElement('span');
+    el.appendChild(textNode);
+    el.appendChild(cursor);
+    var ri = 0, ci = 0, deleting = false;
+    function tick() {
+      var word = roles[ri];
+      if (!deleting) {
+        ci++;
+        textNode.textContent = word.slice(0, ci);
+        if (ci === word.length) { deleting = true; setTimeout(tick, 1400); return; }
+      } else {
+        ci--;
+        textNode.textContent = word.slice(0, ci);
+        if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+      }
+      setTimeout(tick, deleting ? 35 : 65);
+    }
+    tick();
+  })();
+
+  // Scroll reveal
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('visible'); }); return; }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (e) { obs.observe(e); });
+  })();
+
+  // Stat count-up
+  (function () {
+    var stats = document.querySelectorAll('.stat .num');
+    if (!stats.length) return;
+    var animated = false;
+    function animate() {
+      if (animated) return;
+      animated = true;
+      stats.forEach(function (el) {
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var start = 0, duration = 1200, startTime = null;
+        function step(ts) {
+          if (!startTime) startTime = ts;
+          var progress = Math.min((ts - startTime) / duration, 1);
+          var val = Math.floor(progress * target);
+          el.textContent = val + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    var strip = document.querySelector('.stats-strip');
+    if (strip && 'IntersectionObserver' in window) {
+      var o = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) { if (entry.isIntersecting) { animate(); o.disconnect(); } });
+      }, { threshold: 0.3 });
+      o.observe(strip);
+    } else {
+      animate();
+    }
+  })();
+</script>
 
 </body>
 </html>
