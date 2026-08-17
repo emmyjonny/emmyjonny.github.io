@@ -99,6 +99,24 @@
     background: var(--surface); border: 1px solid var(--border);
     padding: 8px 16px; border-radius: 8px; font-size: .9rem; color: var(--muted);
   }
+  .skill-group { margin-bottom: 24px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: 10px; }
+
+  .badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 18px; }
+  .badge { text-align: center; }
+  .badge img { width: 76px; height: 76px; object-fit: contain; margin-bottom: 8px; }
+  .badge span { display: block; font-size: .82rem; color: var(--muted); line-height: 1.3; }
+
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .info-grid h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 14px; }
+  .edu-item { margin-bottom: 16px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-item .deg { font-weight: 600; font-size: .95rem; }
+  .edu-item .sch { color: var(--muted); font-size: .88rem; }
+  .list-plain { list-style: none; color: var(--muted); font-size: .92rem; }
+  .list-plain li { padding: 5px 0; border-bottom: 1px solid var(--border); }
+  .list-plain li:last-child { border-bottom: none; }
 
   #contact { text-align: center; }
   #contact h2::after { margin: 10px auto 0; }
@@ -108,6 +126,7 @@
 
   @media (max-width: 720px) {
     .about-grid { grid-template-columns: 1fr; }
+    .info-grid { grid-template-columns: 1fr; gap: 24px; }
     nav ul { display: none; }
   }
 </style>
@@ -123,6 +142,7 @@
       <li><a href="#dashboards">Dashboards</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#credentials">Credentials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -132,7 +152,8 @@
   <div class="wrap">
     <div class="kicker">AI Governance · Risk · Compliance · Machine Learning</div>
     <h1>Emmanuel Jonathan</h1>
-    <p class="lede">Law-trained risk and compliance professional building at the intersection of AI governance, data governance, and risk-aware machine learning systems.</p>
+    <p class="lede">Experienced professional with an M.S. in Information Technology and Management and six years across financial services, government, and consulting — combining hands-on technical work in Python, SQL, and machine learning with a sustained record of resolving complex escalated cases and coordinating regulator-facing documentation.</p>
+    <p style="color:var(--muted); font-size:.92rem; margin-top:-20px; margin-bottom:24px;">Baltimore, MD</p>
     <div class="btns">
       <a class="btn btn-primary" href="#projects">View Projects</a>
       <a class="btn btn-ghost" href="mailto:jonathanemmanuel887@gmail.com">Get in Touch</a>
@@ -144,9 +165,10 @@
   <div class="wrap about-grid">
     <div>
       <h2>About</h2>
-      <p>My background spans <strong>international law, regulatory compliance, financial crime investigations</strong>, and large-scale public sector program governance. I bring structured legal reasoning, audit-ready documentation experience, and system-level risk analysis into technology and AI-focused work.</p>
-      <p>As a former <strong>AML Investigator</strong>, I've investigated sanctions and suspicious transaction alerts, conducted enhanced due diligence and OSINT analysis, and coordinated regulator-facing documentation across jurisdictions. That foundation shapes my interest in building <strong>accountable, risk-aware, and policy-aligned AI systems</strong>.</p>
-      <p>Educated at Dallas Baptist University. Writing at <a href="https://techlawgical.com" target="_blank" rel="noopener">techlawgical.com</a>.</p>
+      <p>My background spans <strong>international law, regulatory compliance, financial crime investigations</strong>, and large-scale public sector program governance across financial services, government, and consulting. I bring structured legal reasoning, audit-ready documentation experience, and system-level risk analysis into technology and AI-focused work.</p>
+      <p>As a former <strong>AML Investigator</strong> at Wise Payments, I investigated sanctions and suspicious transaction alerts, drafted 120+ audit-ready SAR narratives monthly, and coordinated regulator-facing documentation across 80+ jurisdictions. I partnered with product/engineering to improve transaction monitoring rules — increasing detection by 35% — and led QA reviews mentoring 15+ analysts to 95% accuracy.</p>
+      <p>Today I'm a <strong>Fellow at Build Lane</strong> (Frontier Commons Fellowship), building and maintaining digital tools and web applications for an international student community — owning the full cycle from requirements through deployment and user support. That foundation shapes my interest in building <strong>accountable, risk-aware, and policy-aligned AI systems</strong>.</p>
+      <p>Writing at <a href="https://techlawgical.com" target="_blank" rel="noopener">techlawgical.com</a>.</p>
     </div>
     <div class="focus-card">
       <h3>Focus Areas</h3>
@@ -209,21 +231,42 @@
   <div class="wrap">
     <h2>Professional Background</h2>
     <div class="exp-item">
-      <h3>AML Investigator</h3>
-      <div class="meta">Risk, Compliance &amp; Financial Crime</div>
+      <h3>Fellow, Build Lane — Frontier Commons Fellowship</h3>
+      <div class="meta">US Remote · Jul 2026 – Present</div>
       <ul>
-        <li>Investigated sanctions and suspicious transaction alerts</li>
-        <li>Conducted enhanced due diligence and OSINT analysis</li>
-        <li>Produced high-volume, audit-ready investigative narratives</li>
-        <li>Strengthened monitoring controls and detection frameworks</li>
-        <li>Coordinated regulator-facing documentation across jurisdictions</li>
+        <li>Build and maintain digital tools and web applications serving an international student community, owning the full cycle from requirements gathering through deployment and post-launch user support</li>
+        <li>Act as the direct technical point of contact for end users, diagnosing and resolving access, account, and configuration issues</li>
+        <li>Translate non-technical stakeholder needs into functional requirements, scoping features with program staff and prioritizing based on user impact and delivery constraints</li>
       </ul>
     </div>
     <div class="exp-item">
-      <h3>Current Direction</h3>
-      <div class="meta">AI Governance &amp; Compliance Analytics</div>
+      <h3>AML Investigator, Wise Payments Limited</h3>
+      <div class="meta">Tallinn, Estonia · Mar 2021 – Sep 2024</div>
       <ul>
-        <li>Seeking roles and collaborations across AI governance, risk management, compliance analytics, fraud prevention, and technology policy</li>
+        <li>Investigated and reviewed AML &amp; sanctions alerts; escalated high-risk cases in compliance with different jurisdictional requirements</li>
+        <li>Conducted enhanced due diligence using screening tools (FircoSoft, World-Check, LexisNexis, Factiva) and OSINT across large customer datasets</li>
+        <li>Prepared SARs and drafted 120+ audit-ready case narratives monthly; coordinated regulator-facing documentation across 80+ jurisdictions</li>
+        <li>Partnered with product/engineering to improve transaction monitoring rules, increasing detection by 35% and strengthening controls for emerging threat patterns</li>
+        <li>Led QA reviews and mentored 15+ analysts, achieving 95% QA accuracy and improving reporting consistency</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <h3>Project Manager (Legal &amp; Compliance), Rural Electrification Agency</h3>
+      <div class="meta">Abuja, Nigeria · $350M World Bank-funded Nigeria Electrification Project · Jan 2020 – Jan 2021</div>
+      <ul>
+        <li>Designed and maintained compliance documentation for a $350M World Bank-funded project; supported audit readiness through structured reporting and record-keeping</li>
+        <li>Conducted contract reviews and legal risk assessments; developed risk controls to address evolving regulatory obligations</li>
+        <li>Coordinated multi-stakeholder engagement (ministries, donors, contractors, communities) and communicated progress to senior officials and partner teams</li>
+        <li>Produced monthly compliance status reports highlighting gaps, remediation steps, and progress against obligations</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <h3>Energy Associate (Data Analysis &amp; Monitoring), Deloitte &amp; Touche</h3>
+      <div class="meta">Abuja, Nigeria · Jul 2019 – Dec 2019</div>
+      <ul>
+        <li>Developed monitoring frameworks and risk/control assessment models for renewable energy projects, strengthening oversight and compliance for Power Africa (Nigeria Power Sector Program)</li>
+        <li>Built a centralized database model for tracking energy projects, improving data organization for reporting and audit support</li>
+        <li>Compiled and analyzed operational data to produce daily briefing reports for government, donor, and program stakeholders</li>
       </ul>
     </div>
   </div>
@@ -231,12 +274,117 @@
 
 <section id="skills">
   <div class="wrap">
-    <h2>Technical Stack</h2>
-    <div class="skills">
-      <span>Python</span><span>SQL</span><span>Machine Learning (scikit-learn)</span>
-      <span>Data Analysis (Pandas)</span><span>Streamlit</span><span>Solidity</span>
-      <span>Hardhat</span><span>Power BI</span><span>Tableau</span>
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <h3>Programming &amp; Data</h3>
+      <div class="skills">
+        <span>Python (pandas, scikit-learn)</span><span>SQL</span><span>Git/GitHub</span><span>Excel</span><span>Data Analysis</span>
+      </div>
     </div>
+    <div class="skill-group">
+      <h3>Reporting &amp; Visualization</h3>
+      <div class="skills">
+        <span>Power BI</span><span>Tableau</span><span>Streamlit</span><span>Dashboard Design</span><span>Stakeholder Reporting</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Financial Crime &amp; Compliance</h3>
+      <div class="skills">
+        <span>Financial Crime Investigation</span><span>Transaction Monitoring</span><span>KYC/CDD &amp; EDD</span>
+        <span>Sanctions &amp; PEP Screening</span><span>SAR Drafting &amp; Filing</span><span>Risk Assessment</span>
+        <span>Alert Triage &amp; Escalation</span><span>QA Review</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Regulatory &amp; Legal</h3>
+      <div class="skills">
+        <span>BSA/AML</span><span>OFAC</span><span>FATF Recommendations</span><span>Data Privacy (GDPR)</span>
+        <span>Regulatory Research &amp; Drafting</span><span>Policy &amp; Procedure Documentation</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Investigative Tools</h3>
+      <div class="skills">
+        <span>World-Check</span><span>LexisNexis</span><span>Dow Jones / Factiva</span><span>FircoSoft</span>
+        <span>Corporate Registries</span><span>Case Management &amp; Ticketing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="wrap">
+    <h2>Credentials</h2>
+    <div class="info-grid" style="margin-bottom:40px;">
+      <div>
+        <h3>Education</h3>
+        <div class="edu-item">
+          <div class="deg">M.S., Information Technology and Management</div>
+          <div class="sch">Dallas Baptist University, US · 2026</div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">M.A., International Law and Human Rights</div>
+          <div class="sch">University of Tartu, Estonia · 2022</div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">License to Practice Law in Nigeria</div>
+          <div class="sch">Nigerian Law School · 2015</div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">LL.B. Common Law</div>
+          <div class="sch">University of Ilorin, Nigeria · 2014</div>
+        </div>
+      </div>
+      <div>
+        <h3>Professional Memberships</h3>
+        <ul class="list-plain">
+          <li>Association of Financial Crimes Specialists (ACFCS)</li>
+          <li>Financial Crimes Academy (FCA)</li>
+          <li>Project Management Institute (PMI)</li>
+          <li>Nigerian Bar Association (NBA)</li>
+        </ul>
+        <h3 style="margin-top:24px;">Volunteering</h3>
+        <div class="edu-item">
+          <div class="deg">United Nations Online Volunteer</div>
+          <div class="sch">Tanzania Development Trust · Feb 2022 – Dec 2022</div>
+        </div>
+        <p style="color:var(--muted); font-size:.88rem;">Digitized buildings, roads, and settlement features in rural Tanzania to OpenStreetMap, supporting a mapping initiative that improves service delivery and navigation.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; color:var(--accent); margin-bottom:16px;">Certifications &amp; Badges</h3>
+    <p style="color:var(--muted); font-size:.9rem; margin-bottom:20px;">Verified credentials on <a href="https://www.credly.com/users/emmanuel-jonathan.2621fcc0/badges" target="_blank" rel="noopener">Credly</a>.</p>
+    <div class="badges">
+      <a class="badge" href="https://www.credly.com/users/emmanuel-jonathan.2621fcc0/badges" target="_blank" rel="noopener">
+        <img src="https://images.credly.com/images/9a0255eb-a47d-4f3a-9611-243bfe3eb9e4/image.png" alt="Git and GitHub Essentials" loading="lazy">
+        <span>Git and GitHub Essentials — Coursera</span>
+      </a>
+      <a class="badge" href="https://www.credly.com/users/emmanuel-jonathan.2621fcc0/badges" target="_blank" rel="noopener">
+        <img src="https://images.credly.com/images/f5c094f4-e07c-44e0-b685-4ffd8980fd53/blob" alt="Generative AI Overview for Project Managers" loading="lazy">
+        <span>Generative AI Overview for PMs — PMI</span>
+      </a>
+      <a class="badge" href="https://www.credly.com/users/emmanuel-jonathan.2621fcc0/badges" target="_blank" rel="noopener">
+        <img src="https://images.credly.com/images/aa42e8b5-b36d-4b8c-abbe-c6a6f51fd7d9/blob" alt="Talking to AI: Prompt Engineering for Project Managers" loading="lazy">
+        <span>Prompt Engineering for PMs — PMI</span>
+      </a>
+      <a class="badge" href="https://www.credly.com/users/emmanuel-jonathan.2621fcc0/badges" target="_blank" rel="noopener">
+        <img src="https://images.credly.com/images/8eca8083-1281-4483-8608-03372739e1e7/blob" alt="Data Landscape of GenAI for Project Managers" loading="lazy">
+        <span>Data Landscape of GenAI — PMI</span>
+      </a>
+      <a class="badge" href="https://www.credly.com/users/emmanuel-jonathan.2621fcc0/badges" target="_blank" rel="noopener">
+        <img src="https://images.credly.com/images/3b7846e2-bdbd-4ed6-8543-182f47502190/image.png" alt="Agile Explorer" loading="lazy">
+        <span>Agile Explorer — IBM SkillsBuild</span>
+      </a>
+      <a class="badge" href="https://www.credly.com/users/emmanuel-jonathan.2621fcc0/badges" target="_blank" rel="noopener">
+        <img src="https://images.credly.com/images/26c23959-e5cb-4803-911e-40b12008c364/f111184d613a3717bcdcee673e2bd7cd.png" alt="Top Pledge Earner" loading="lazy">
+        <span>Top Pledge Earner (Y14 2025-26) — Up to Us</span>
+      </a>
+      <a class="badge" href="https://www.credly.com/users/emmanuel-jonathan.2621fcc0/badges" target="_blank" rel="noopener">
+        <img src="https://images.credly.com/images/0c4e1dd5-5d3c-4974-9720-e09af4302e5e/blob" alt="Practical Application of Gen AI for Project Managers" loading="lazy">
+        <span>Practical Application of Gen AI — PMI</span>
+      </a>
+    </div>
+    <p style="color:var(--muted); font-size:.88rem; margin-top:24px;">Also holds: <strong>Certified Financial Crime Specialist (CFCS)</strong> — ACFCS 2024 scholarship recipient; <strong>Certified Anti-Money Laundering Professional (CAMP)</strong>, Financial Crime Academy; Enterprise Design Thinking Co-Creator &amp; Practitioner (IBM); Fundamentals of Agile &amp; Predictive Project Management (PMI); Open-Source Intelligence, Terrorist Financing, and Financial Analysis Using Excel (Basel Institute on Governance); Preventing Online Child Exploitation with Financial Intelligence (ACAMS).</p>
   </div>
 </section>
 
